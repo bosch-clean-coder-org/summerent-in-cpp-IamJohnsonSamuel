@@ -1,6 +1,6 @@
 #include "typewise-alert.h"
 
-CbreachType &inferBreach(double value, double lowerLimit, double upperLimit)
+CbreachType *inferBreach(double value, double lowerLimit, double upperLimit)
 {
   if (value < lowerLimit)
   {
@@ -13,8 +13,7 @@ CbreachType &inferBreach(double value, double lowerLimit, double upperLimit)
   return new BreachTypeNormal;
 }
 
-CbreachType &
-classifyTemperatureBreach(
+CbreachType *classifyTemperatureBreach(
     CcoolingType &coolingType, double temperatureInC)
 {
   int lowerLimit = coolingType.getLowerLimit();
