@@ -9,12 +9,14 @@ typedef enum
 
 class CcoolingType
 {
-  int getLowerLimit();
-  int getUpperLimit();
+public:
+  virtual int getLowerLimit();
+  virtual int getUpperLimit();
 };
 
-class PassiveCooling extends CcoolingType
+class PassiveCooling : public CcoolingType
 {
+public:
   int getLowerLimit()
   {
     return 0;
@@ -25,8 +27,9 @@ class PassiveCooling extends CcoolingType
   }
 };
 
-class MediumActiveCooling extends CcoolingType
+class MediumActiveCooling : public CcoolingType
 {
+public:
   int getLowerLimit()
   {
     return 0;
@@ -37,8 +40,9 @@ class MediumActiveCooling extends CcoolingType
   }
 };
 
-class HiActiveCooling extends CcoolingType
+class HiActiveCooling : public CcoolingType
 {
+public:
   int getLowerLimit()
   {
     return 0;
