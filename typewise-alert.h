@@ -11,7 +11,7 @@ class CcoolingType
 {
   int getLowerLimit();
   int getUpperLimit();
-}
+};
 
 class PassiveCooling extends CcoolingType
 {
@@ -23,7 +23,7 @@ class PassiveCooling extends CcoolingType
   {
     return 35;
   }
-}
+};
 
 class MediumActiveCooling extends CcoolingType
 {
@@ -35,7 +35,7 @@ class MediumActiveCooling extends CcoolingType
   {
     return 40;
   }
-}
+};
 
 class HiActiveCooling extends CcoolingType
 {
@@ -47,9 +47,10 @@ class HiActiveCooling extends CcoolingType
   {
     return 45;
   }
-}
+};
 
-typedef enum {
+typedef enum
+{
   NORMAL,
   TOO_LOW,
   TOO_HIGH
