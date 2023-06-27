@@ -27,16 +27,17 @@ void checkAndAlert(
     AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC)
 {
 
-  CbreachType *breachType = classifyTemperatureBreach(
+  CbreachType *breachType;
+  breachType = classifyTemperatureBreach(
       batteryChar.coolingType, temperatureInC);
 
   switch (alertTarget)
   {
   case TO_CONTROLLER:
-    sendToController(breachType);
+    sendToController(*breachType);
     break;
   case TO_EMAIL:
-    breachType.sendToEmail("a.b@c.com");
+    breachType->sendToEmail("a.b@c.com");
   }
   delete breachType;
 }
