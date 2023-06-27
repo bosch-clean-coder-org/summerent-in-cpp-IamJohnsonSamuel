@@ -111,8 +111,8 @@ public:
     (void)recepient;
   }
 };
-BreachType inferBreach(double value, double lowerLimit, double upperLimit);
-BreachType classifyTemperatureBreach(CcoolingType &coolingType, double temperatureInC);
+CbreachType &inferBreach(double value, double lowerLimit, double upperLimit);
+CbreachType &classifyTemperatureBreach(CcoolingType &coolingType, double temperatureInC);
 
 typedef enum
 {
