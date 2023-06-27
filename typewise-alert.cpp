@@ -1,5 +1,4 @@
 #include "typewise-alert.h"
-#include <stdio.h>
 
 CbreachType &inferBreach(double value, double lowerLimit, double upperLimit)
 {

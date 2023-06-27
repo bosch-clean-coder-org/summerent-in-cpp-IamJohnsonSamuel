@@ -1,4 +1,5 @@
 #pragma once
+#include <stdio.h>
 
 typedef enum
 {
@@ -107,6 +108,7 @@ public:
   }
   virtual void sendToEmail(const char *recepient)
   {
+    (void)recepient;
   }
 };
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
