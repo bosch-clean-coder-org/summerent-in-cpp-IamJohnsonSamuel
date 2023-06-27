@@ -14,48 +14,6 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
   return NORMAL;
 }
 
-class CcoolingType
-{
-  int getLowerLimit();
-  int getUpperLimit();
-}
-
-class PassiveCooling extends CcoolingType
-{
-  int getLowerLimit()
-  {
-    return 0;
-  }
-  int getUpperLimit()
-  {
-    return 35;
-  }
-}
-
-class MediumActiveCooling extends CcoolingType
-{
-  int getLowerLimit()
-  {
-    return 0;
-  }
-  int getUpperLimit()
-  {
-    return 40;
-  }
-}
-
-class HiActiveCooling extends CcoolingType
-{
-  int getLowerLimit()
-  {
-    return 0;
-  }
-  int getUpperLimit()
-  {
-    return 45;
-  }
-}
-
 BreachType
 classifyTemperatureBreach(
     CcoolingType &coolingType, double temperatureInC)

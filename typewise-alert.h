@@ -7,8 +7,49 @@ typedef enum
   MED_ACTIVE_COOLING
 } CoolingType;
 
-typedef enum
+class CcoolingType
 {
+  int getLowerLimit();
+  int getUpperLimit();
+}
+
+class PassiveCooling extends CcoolingType
+{
+  int getLowerLimit()
+  {
+    return 0;
+  }
+  int getUpperLimit()
+  {
+    return 35;
+  }
+}
+
+class MediumActiveCooling extends CcoolingType
+{
+  int getLowerLimit()
+  {
+    return 0;
+  }
+  int getUpperLimit()
+  {
+    return 40;
+  }
+}
+
+class HiActiveCooling extends CcoolingType
+{
+  int getLowerLimit()
+  {
+    return 0;
+  }
+  int getUpperLimit()
+  {
+    return 45;
+  }
+}
+
+typedef enum {
   NORMAL,
   TOO_LOW,
   TOO_HIGH
