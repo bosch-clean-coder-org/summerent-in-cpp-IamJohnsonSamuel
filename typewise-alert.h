@@ -67,7 +67,7 @@ typedef enum
 
 typedef struct
 {
-  CcoolingType coolingType;
+  CcoolingType &coolingType;
   char brand[48];
 } BatteryCharacter;
 

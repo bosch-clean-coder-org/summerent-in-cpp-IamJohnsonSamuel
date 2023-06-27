@@ -19,7 +19,7 @@ classifyTemperatureBreach(
     CcoolingType &coolingType, double temperatureInC)
 {
   int lowerLimit = coolingType.getLowerLimit();
-  int upperLimit = CoolingType.getUpperLimit();
+  int upperLimit = coolingType.getUpperLimit();
 
   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
