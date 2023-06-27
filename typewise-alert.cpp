@@ -14,19 +14,54 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
   return NORMAL;
 }
 
-BreachType classifyTemperatureBreach(
-    CoolingType coolingType, double temperatureInC)
+class CcoolingType
 {
-  int lowerLimit = 0;
-  int upperLimit = 0;
+  int getLowerLimit();
+  int getUpperLimit();
+}
 
-  int array[][] = {{0, 35}, {0, 40}, {0, 45}};
-
-  if (coolingType <= HI_ACTIVE_COOLING)
+class PassiveCooling extends CcoolingType
+{
+  int getLowerLimit()
   {
-    lowerLimit = array[coolingType][0];
-    upperLimit = array[coolingType][1];
+    return 0;
   }
+  int getUpperLimit()
+  {
+    return 35;
+  }
+}
+
+class MediumActiveCooling extends CcoolingType
+{
+  int getLowerLimit()
+  {
+    return 0;
+  }
+  int getUpperLimit()
+  {
+    return 40;
+  }
+}
+
+class HiActiveCooling extends CcoolingType
+{
+  int getLowerLimit()
+  {
+    return 0;
+  }
+  int getUpperLimit()
+  {
+    return 45;
+  }
+}
+
+BreachType
+classifyTemperatureBreach(
+    CcoolingType &coolingType, double temperatureInC)
+{
+  int lowerLimit = coolingType.getLowerLimit();
+  int upperLimit = CoolingType.getUpperLimit();
 
   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
@@ -68,7 +103,6 @@ void sendToEmail(BreachType breachType)
     printf("To: %s\n", recepient);
     printf("Hi, the temperature is too high\n");
     break;
-
   case NORMAL:
     break;
   }
