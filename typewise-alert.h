@@ -65,6 +65,8 @@ class CbreachType
 {
 public:
   BreachType value;
+  virtual CbreachType() {}
+  virtual ~CbreachType() {}
   virtual void sendToEmail(const char *recepient);
 };
 
