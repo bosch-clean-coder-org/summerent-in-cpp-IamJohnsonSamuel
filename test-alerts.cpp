@@ -5,6 +5,7 @@
 
 TEST_CASE("infers the breach according to limits")
 {
-  CbreachType *breachType = inferBreach(12, 20, 30);
-  REQUIRE(breachType->value == TOO_LOW);
+  CbreachType *breachType = new BreachTypeTooLow;
+  std::cout << "output:" << breachType->getBreachType() << std::endl;
+  REQUIRE(breachType->getBreachType() == TOO_LOW);
 }

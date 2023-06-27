@@ -1,6 +1,6 @@
 #pragma once
 #include <stdio.h>
-
+#include "iostream"
 typedef enum
 {
   PASSIVE_COOLING,
@@ -66,8 +66,15 @@ class CbreachType
 public:
   BreachType value;
   CbreachType() {}
-  virtual ~CbreachType() {}
-  virtual void sendToEmail(const char *recepient);
+  virtual ~CbreachType(){};
+  virtual void sendToEmail(const char *recepient)
+  {
+    (void)recepient;
+  }
+  virtual BreachType getBreachType()
+  {
+    return value;
+  }
 };
 
 class BreachTypeTooLow : public CbreachType
@@ -76,12 +83,17 @@ public:
   BreachType value;
   BreachTypeTooLow()
   {
+    std::cout << "const BreachTypeTooLow" << std::endl;
     value = TOO_LOW;
   }
   virtual void sendToEmail(const char *recepient)
   {
     printf("To: %s\n", recepient);
     printf("Hi, the temperature is too low\n");
+  }
+  virtual BreachType getBreachType()
+  {
+    return value;
   }
 };
 
@@ -98,6 +110,10 @@ public:
     printf("To: %s\n", recepient);
     printf("Hi, the temperature is too high\n");
   }
+  virtual BreachType getBreachType()
+  {
+    return value;
+  }
 };
 
 class BreachTypeNormal : public CbreachType
@@ -111,6 +127,10 @@ public:
   virtual void sendToEmail(const char *recepient)
   {
     (void)recepient;
+  }
+  virtual BreachType getBreachType()
+  {
+    return value;
   }
 };
 CbreachType *inferBreach(double value, double lowerLimit, double upperLimit);

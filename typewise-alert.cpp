@@ -1,15 +1,21 @@
 #include "typewise-alert.h"
+#include "iostream"
 
 CbreachType *inferBreach(double value, double lowerLimit, double upperLimit)
 {
+  CbreachType *breachType;
   if (value < lowerLimit)
   {
-    return new BreachTypeTooLow;
+    breachType = new BreachTypeTooLow;
+    std::cout << "BreachTypeTooLow: " << breachType->value << std::endl;
+    return breachType;
   }
   if (value > upperLimit)
   {
+    std::cout << "BreachTypeTooHigh" << std::endl;
     return new BreachTypeTooHigh;
   }
+  std::cout << "BreachTypeNormal" << std::endl;
   return new BreachTypeNormal;
 }
 
