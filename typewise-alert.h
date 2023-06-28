@@ -1,4 +1,7 @@
-#pragma once
+
+#ifndef _TYPEWISE_H_
+#define _TYPEWISE_H_
+
 #include "iostream"
 typedef enum
 {
@@ -167,3 +170,5 @@ void checkAndAlert(
 
 void sendToController(CbreachType &breachType);
 void sendToEmail(BreachType breachType);
+
+#endif /*_TYPEWISE_H_*/
