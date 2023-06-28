@@ -94,16 +94,14 @@ public:
   BreachType value;
   BreachTypeTooLow()
   {
-    std::cout << "const BreachTypeTooLow" << std::endl;
+    // std::cout << "const BreachTypeTooLow" << std::endl;
     value = TOO_LOW;
   }
   virtual void sendToEmail()
   {
     const char *recepient = "a.b@c.com";
     std::cout << "To: " << recepient << std::endl;
-    // printf("To: %s\n", recepient);
     std::cout << "Hi, the temperature is too low" << std::endl;
-    // printf("Hi, the temperature is too low\n");
   }
   virtual BreachType getBreachType()
   {
@@ -123,9 +121,7 @@ public:
   {
     const char *recepient = "a.b@c.com";
     std::cout << "To: " << recepient << std::endl;
-    // printf("To: %s\n", recepient);
     std::cout << "Hi, the temperature is too high" << std::endl;
-    // printf("Hi, the temperature is too high\n");
   }
   virtual BreachType getBreachType()
   {

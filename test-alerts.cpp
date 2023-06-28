@@ -6,21 +6,21 @@
 TEST_CASE("infers the breach according to limits")
 {
   CbreachType *breachType = inferBreach(12, 20, 30);
-  std::cout << "output:" << breachType->getBreachType() << std::endl;
+  // std::cout << "output:" << breachType->getBreachType() << std::endl;
   REQUIRE(breachType->getBreachType() == TOO_LOW);
 }
 
 TEST_CASE("infers the breach according to limits high")
 {
   CbreachType *breachType = inferBreach(40, 20, 30);
-  std::cout << "output:" << breachType->getBreachType() << std::endl;
+  // std::cout << "output:" << breachType->getBreachType() << std::endl;
   REQUIRE(breachType->getBreachType() == TOO_HIGH);
 }
 
 TEST_CASE("infers the breach according to limits normal")
 {
   CbreachType *breachType = inferBreach(25, 20, 30);
-  std::cout << "output:" << breachType->getBreachType() << std::endl;
+  // std::cout << "output:" << breachType->getBreachType() << std::endl;
   REQUIRE(breachType->getBreachType() == NORMAL);
 }
 
