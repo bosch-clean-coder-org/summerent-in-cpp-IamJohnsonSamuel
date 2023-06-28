@@ -42,7 +42,7 @@ void checkAndAlert(
     sendToController(*breachType);
     break;
   case TO_EMAIL:
-    breachType->sendToEmail("a.b@c.com");
+    breachType->sendToEmail();
   }
   delete breachType;
 }
@@ -50,7 +50,8 @@ void checkAndAlert(
 void sendToController(CbreachType &breachType)
 {
   const unsigned short header = 0xfeed;
-  printf("%x : %x\n", header, breachType.value);
+  std::cout << std::hex << header << ":" << breachType.getBreachType() << std::endl;
+  // printf("%x : %x\n", header, breachType.getBreachType());
 }
 
 // void sendToEmail(BreachType breachType)

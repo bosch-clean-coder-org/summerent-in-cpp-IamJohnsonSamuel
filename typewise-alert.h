@@ -11,8 +11,16 @@ typedef enum
 class CcoolingType
 {
 public:
-  virtual int getLowerLimit();
-  virtual int getUpperLimit();
+  CcoolingType() {}
+  virtual ~CcoolingType() {}
+  virtual int getLowerLimit()
+  {
+    return 0;
+  }
+  virtual int getUpperLimit()
+  {
+    return 0;
+  }
 };
 
 class PassiveCooling : public CcoolingType
@@ -67,8 +75,9 @@ public:
   BreachType value;
   CbreachType() {}
   virtual ~CbreachType(){};
-  virtual void sendToEmail(const char *recepient)
+  virtual void sendToEmail()
   {
+    const char *recepient = "a.b@c.com";
     (void)recepient;
   }
   virtual BreachType getBreachType()
@@ -86,10 +95,13 @@ public:
     std::cout << "const BreachTypeTooLow" << std::endl;
     value = TOO_LOW;
   }
-  virtual void sendToEmail(const char *recepient)
+  virtual void sendToEmail()
   {
-    printf("To: %s\n", recepient);
-    printf("Hi, the temperature is too low\n");
+    const char *recepient = "a.b@c.com";
+    std::cout << "To: " << recepient << std::endl;
+    // printf("To: %s\n", recepient);
+    std::cout << "Hi, the temperature is too low" << std::endl;
+    // printf("Hi, the temperature is too low\n");
   }
   virtual BreachType getBreachType()
   {
@@ -105,10 +117,13 @@ public:
   {
     value = TOO_HIGH;
   }
-  virtual void sendToEmail(const char *recepient)
+  virtual void sendToEmail()
   {
-    printf("To: %s\n", recepient);
-    printf("Hi, the temperature is too high\n");
+    const char *recepient = "a.b@c.com";
+    std::cout << "To: " << recepient << std::endl;
+    // printf("To: %s\n", recepient);
+    std::cout << "Hi, the temperature is too high" << std::endl;
+    // printf("Hi, the temperature is too high\n");
   }
   virtual BreachType getBreachType()
   {
